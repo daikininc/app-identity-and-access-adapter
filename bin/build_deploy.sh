@@ -82,4 +82,4 @@ checkEnv
 buildAndTag $1
 deleteAndWait
 installAdapter "${IMAGE_TEST_TAG}"
-installDemoApplication
+#installDemoApplication

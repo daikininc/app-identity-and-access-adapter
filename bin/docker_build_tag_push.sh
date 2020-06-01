@@ -58,7 +58,7 @@ function buildAndDeploy() {
 }
 
 
-IMAGE_REGISTRY_NAMESPACE=${IMAGE_REGISTRY_NAMESPACE:-ibmcloudsecurity}
+IMAGE_REGISTRY_NAMESPACE=${IMAGE_REGISTRY_NAMESPACE:-dsvrepo}
 APP_NAME=${APP_NAME:-app-identity-and-access-adapter}
 TAG=$(buildTag $1)
 IMAGE_TAG=${IMAGE_REGISTRY_NAMESPACE}/${APP_NAME}:${TAG}

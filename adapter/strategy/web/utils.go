@@ -5,13 +5,14 @@ import (
 	"math/rand"
 	"net/http"
 	"net/url"
+	"strings"
 	"time"
 	"unsafe"
 
 	"go.uber.org/zap"
 
 	"github.com/ibm-cloud-security/app-identity-and-access-adapter/adapter/client"
-	authnz "github.com/ibm-cloud-security/app-identity-and-access-adapter/config/template"
+	"github.com/ibm-cloud-security/app-identity-and-access-adapter/config/template"
 )
 
 const (
@@ -72,7 +73,7 @@ func generateAuthorizationURL(c client.Client, redirectURI string, state string)
 
 // buildRequestURL constructs the original url from the request object
 func buildRequestURL(action *authnz.RequestMsg) string {
-	return action.Scheme + "://" + action.Host + action.Path
+	return action.Scheme + "://" + action.Host + strings.TrimSuffix(action.Path, "/")
 }
 
 // buildTokenCookieName constructs the cookie name
